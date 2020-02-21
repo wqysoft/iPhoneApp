@@ -22,35 +22,24 @@
   </div>
 </template>
 <script>
-import src1 from "../../assets/news.png";
-import src2 from "../../assets/share.png";
-import src3 from "../../assets/display.png";
-import src4 from "../../assets/inform.png";
-import src5 from "../../assets/callback.png";
-import src6 from "../../assets/contact.png";
-import food1 from "../../assets/foodO.jpg";
-import food2 from "../../assets/foodT.jpg";
-import food3 from "../../assets/foodTH.jpg";
-import food4 from "../../assets/foodF.jpg";
 
 export default {
   name: "Home",
   data() {
     return {
-      // imgs:[],
       images: [
-        { id: 1, src: src1, title: "新闻资讯",router:{name:"news.list"}},
-        { id: 2, src: src2, title: "图文分享" ,router:{name:"news.list"}},
-        { id: 3, src: src3, title: "商品展示",router:{name:"news.list"} },
-        { id: 4, src: src4, title: "资讯" ,router:{name:"news.list"}},
-        { id: 5, src: src5, title: "留言反馈" ,router:{name:"news.list"}},
-        { id: 6, src: src6, title: "联系我们" ,router:{name:"news.list"}}
+        { id: 1, src: "../static/images/news.png", title: "新闻资讯",router:{name:"news.list"}},
+        { id: 2, src: "../static/images/share.png", title: "图文分享" ,router:{name:"news.list"}},
+        { id: 3, src: "../static/images/display.png", title: "商品展示",router:{name:"news.list"} },
+        { id: 4, src: "../static/images/inform.png", title: "资讯" ,router:{name:"news.list"}},
+        { id: 5, src: "../static/images/callback.png", title: "留言反馈" ,router:{name:"news.list"}},
+        { id: 6, src: "../static/images/contact.png", title: "联系我们" ,router:{name:"news.list"}}
       ],
       banners:[
-        {id:1,src:food1},
-        {id:2,src:food2},
-        {id:3,src:food3},
-        {id:4,src:food4}
+        {id:1,src:"../static/images/foodO.jpg"},
+        {id:2,src:"../static/images/foodT.jpg"},
+        {id:3,src:"../static/images/foodTH.jpg"},
+        {id:4,src:"../static/images/foodF.jpg"}
       ]
     };
   }

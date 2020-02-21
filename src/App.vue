@@ -23,15 +23,11 @@
   </div>
 </template>
 <script>
-import index from "./assets/index.png";
-import vip from "./assets/vip.png";
-import cart from "./assets/cart.png";
-import search from "./assets/search.png";
 let tabs = [
-  { id: 1, title: "首页", imgSrc: index, routerName: { name: "home" } },
-  { id: 2, title: "会员", imgSrc: vip, routerName: { name: "vip" } },
-  { id: 3, title: "购物车", imgSrc: cart, routerName: { name: "cart" } },
-  { id: 4, title: "查找", imgSrc: search, routerName: { name: "search" } }
+  { id: 1, title: "首页", imgSrc: "./static/images/index.png", routerName: { name: "home" } },
+  { id: 2, title: "会员", imgSrc: "./static/images/vip.png", routerName: { name: "vip" } },
+  { id: 3, title: "购物车", imgSrc: "./static/images/cart.png", routerName: { name: "cart" } },
+  { id: 4, title: "查找", imgSrc: "./static/images/search.png", routerName: { name: "search" } }
 ];
 export default {
   name: "App",
