@@ -10,7 +10,7 @@
       <!-- 九宫格 -->
       <div class="list">
         <ul>
-          <li v-for="(image,index) in images" :key="index">
+          <li v-for="image in images" :key="image.id">
             <router-link :to="image.router">
               <img :src="image.src">
             </router-link>
@@ -22,25 +22,32 @@
   </div>
 </template>
 <script>
-
-export default {
-  name: "Home",
-  data() {
-    return {
-      images: [
+var grids=[ 
         { id: 1, src: "../static/images/news.png", title: "新闻资讯",router:{name:"news.list"}},
         { id: 2, src: "../static/images/share.png", title: "图文分享" ,router:{name:"news.list"}},
-        { id: 3, src: "../static/images/display.png", title: "商品展示",router:{name:"news.list"} },
+        { id: 3, src: "../static/images/display.png", title: "商品展示",router:{name:"news.list"}},
         { id: 4, src: "../static/images/inform.png", title: "资讯" ,router:{name:"news.list"}},
         { id: 5, src: "../static/images/callback.png", title: "留言反馈" ,router:{name:"news.list"}},
-        { id: 6, src: "../static/images/contact.png", title: "联系我们" ,router:{name:"news.list"}}
-      ],
-      banners:[
+        { id: 6, src: "../static/images/contact.png", title: "联系我们" ,router:{name:"news.list"}},
+        { id: 7, src: "../static/images/news.png", title: "新闻资讯",router:{name:"news.list"}},
+        { id: 8, src: "../static/images/share.png", title: "图文分享" ,router:{name:"news.list"}},
+        { id: 9, src: "../static/images/display.png", title: "商品展示",router:{name:"news.list"}},
+        { id: 10, src: "../static/images/inform.png", title: "资讯" ,router:{name:"news.list"}},
+        { id: 11, src: "../static/images/callback.png", title: "留言反馈" ,router:{name:"news.list"}},
+        { id: 12, src: "../static/images/contact.png", title: "联系我们" ,router:{name:"news.list"}}
+      ]
+var banners=[
         {id:1,src:"../static/images/foodO.jpg"},
         {id:2,src:"../static/images/foodT.jpg"},
         {id:3,src:"../static/images/foodTH.jpg"},
         {id:4,src:"../static/images/foodF.jpg"}
       ]
+export default {
+  name: "Home",
+  data() {
+    return {
+      images: grids,
+      banners:banners
     };
   }
   //  created(){//发起请求

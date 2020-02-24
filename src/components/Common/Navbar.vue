@@ -1,6 +1,6 @@
 <template>
 <div class="header">
-    <h4 class="back" @click="goBack">&lt;</h4>
+    <h4 class="back" @click="goBack">×</h4>
     <h4 class="desc_title">
         {{title}}
     </h4>

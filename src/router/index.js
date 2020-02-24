@@ -6,17 +6,17 @@ import Vip from '@/components/Vip/Vip'
 import Search from '@/components/Search/Search'
 import Cart from '@/components/Cart/Cart'
 import NewsList from '@/components/News/Newslist'
-
+import NewsDetail from '@/components/News/NewsDetail'
 //使用vue-router插件vue.protyte.$router=Router;
 Vue.use(Router)
 
 export default new Router({
   //匹配的路由规则
-  linkActiveClass:'link-active',
+  linkActiveClass:'link-active',//给所有的a默认加了一个样式
   routes: [
     {
       path: '/',
-     redirect:'/home'
+     redirect:'/home'//重定项目到首页
     },
     {
       path: '/home',
@@ -43,6 +43,11 @@ export default new Router({
       name: 'news.list',
       component: NewsList
     },
+    {
+      path:'news/detail',
+      name:'detail',
+      component:NewsDetail//对应的新闻详情组件
+    }
   
   ]
 })

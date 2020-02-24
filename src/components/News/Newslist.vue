@@ -1,23 +1,26 @@
 <template>
   <div class="news">
     <Navbar title="新闻资讯"></Navbar>
+    <!-- Navbar -->
     <div class="newsList">
     <ul>
      <li v-for="news in newsList.result.data" :key="news.id">
-       <a :href="news.url">
+          <router-link :to='{name:"detai",query:{id:news.id}}'>
          <div class=new_img>
            <img :src="news.thumbnail_pic_s"/>
          </div>
-           <h4 class="title">{{news.title}}</h4>
+           <p class="title">{{news.title}}</p>
+           <div class="author_time">
            <span class="author_name">{{news.author_name}}</span>
-           <span class="time">{{news.date}}</span>
-       </a>
+           <span class="time">{{news.date}}</span></div>
+       </router-link>
      </li>
     </ul>
   </div>
   </div>
 </template>
 <script>
+var newsList;
 export default {
   name:"newsList",
   data() {
@@ -45,35 +48,30 @@ created(){
 };
 </script>
 <style scoped>
+.news{
+  margin: 0 12px;
+}
 .newsList ul li {
-  padding: 5px 5px 0 0;
-  height:100px;
+  margin-top:8px;
+  height:95px;
   border-bottom: .5px solid #c6c6c6;
 }
 ul li .new_img{
-  float: left;
-  margin-right:20px;
-  margin-top:-8px;
+  float: right;
+  margin-top: -8px;
 }
 ul li .new_img img{
- width: 120px;
- height: 90px;
- margin-top: 10px; 
+ width: 110px;
+ height: 80px;
+ margin: 10px 0 0 10px;
+ border-radius: 8px;
 }
 .title{
   color:#000;
-  height: 70px;
+  height: 62px;
 }
-.author_name{
- 
-   color:coral;
-}
-.time{
-  float:right;
-  color: #949494;
- 
-}
-ul li{
-margin-top: 20px;
+.author_name,.time{
+  color:rgb(192, 192, 192);
+  font-size: 12px;
 }
 </style>
