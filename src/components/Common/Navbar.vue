@@ -5,7 +5,6 @@
         {{title}}
     </h4>
 </div>
-
 </template>
 <script>
 export default {
@@ -28,8 +27,8 @@ export default {
     width: 100%;
     height: 35px;
     line-height: 35px;
-    top: 2px;
-    position: relative;
+    top: 40px;
+    position:fixed;
     background-color: #e0e0e0;
 }
 .header  h4{

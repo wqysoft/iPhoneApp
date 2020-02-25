@@ -1,11 +1,10 @@
 <template>
   <div class="news">
     <Navbar title="新闻资讯"></Navbar>
-    <!-- Navbar -->
     <div class="newsList">
     <ul>
-     <li v-for="news in newsList.result.data" :key="news.id">
-          <router-link :to='{name:"detai",query:{id:news.id}}'>
+     <li v-for="news in newsList" :key="news.id">
+          <router-link :to='{name:"detail",query:{id:news.id}}'>
          <div class=new_img>
            <img :src="news.thumbnail_pic_s"/>
          </div>
@@ -37,9 +36,9 @@ created(){
         }
   })
   .then(res=>{
-     this.newsList=res.data;
-    
-   })
+    this.newsList=res.data.result.data;
+  
+    })
    .catch(err=>{
       console.log("新闻列表异常",err)
    })
@@ -48,12 +47,13 @@ created(){
 };
 </script>
 <style scoped>
-.news{
-  margin: 0 12px;
+.newsList ul{
+  margin-top:40px;
 }
 .newsList ul li {
   margin-top:8px;
-  height:95px;
+  height:90px;
+  padding:0 8px;
   border-bottom: .5px solid #c6c6c6;
 }
 ul li .new_img{

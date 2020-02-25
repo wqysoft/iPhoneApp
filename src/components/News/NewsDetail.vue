@@ -4,7 +4,8 @@
     <Navbar title="新闻详情"></Navbar>
     <!-- Navbar -->
     <div class="detail">
-      <router-link :to="detail.url"></router-link>
+      <router-link :to='detail.url'></router-link>
+  <span>{{detail.name}}</span>
   </div>
   </div>
   </div>
@@ -14,10 +15,10 @@ export default {
   name:'NewsDetail',
   data(){
     return{
-      detail:{}
-    }
+      detail:[]
+    };
   },
-created(){
+  created(){
    this.$axios.get('/toutiao/index', {
     params: {
       type: 'yule'
@@ -26,14 +27,15 @@ created(){
         }
   })
   .then(res=>{
-     this.detail=res.data;
-    
-   })
+    this.detail=res.data.result.data;
+  
+    })
    .catch(err=>{
-      console.log("新闻详情异常",err)
+      console.log("新闻列表异常",err)
    })
 },
-}
+
+};
 </script>
 <style scoped>
 
