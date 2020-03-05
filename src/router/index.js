@@ -45,7 +45,7 @@ export default new Router({
     },
     {
       path:'news/detail',
-      name:'detail',
+      name:'news.detail',
       component:NewsDetail//对应的新闻详情组件
     }
   

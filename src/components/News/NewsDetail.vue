@@ -1,18 +1,12 @@
 <template>
   <div class="detail">
-     <div class="item">
     <Navbar title="新闻详情"></Navbar>
-    <!-- Navbar -->
-    <div class="detail">
-      <router-link :to='detail.url'></router-link>
-  <span>{{detail.name}}</span>
-  </div>
-  </div>
+       <router-link :to='{name:"news.detail",query:{id:news.id}}' :url="detail.url">
   </div>
 </template>
 <script>
 export default {
-  name:'NewsDetail',
+  name:'newsDetail',
   data(){
     return{
       detail:[]
@@ -27,8 +21,7 @@ export default {
         }
   })
   .then(res=>{
-    this.detail=res.data.result.data;
-  
+  this.detail=res.data.result.data;
     })
    .catch(err=>{
       console.log("新闻列表异常",err)

@@ -4,8 +4,8 @@
     <div class="newsList">
     <ul>
      <li v-for="news in newsList" :key="news.id">
-          <router-link :to='{name:"detail",query:{id:news.id}}'>
-         <div class=new_img>
+  <router-link :to='{name:"news.detail",query:{id:news.id}}'>
+         <div class="new_img">
            <img :src="news.thumbnail_pic_s"/>
          </div>
            <p class="title">{{news.title}}</p>
