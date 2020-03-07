@@ -3,8 +3,7 @@
     <Navbar title="新闻资讯"></Navbar>
     <div class="newsList">
     <ul>
-     <li v-for="news in newsList" :key="news.id">
-  <router-link :to='{name:"news.detail",query:{id:news.id}}'>
+      <li v-for="news in newsList" :key="news.id" @click="goToDetail(news)">
          <div class="new_img">
            <img :src="news.thumbnail_pic_s"/>
          </div>
@@ -12,7 +11,6 @@
            <div class="author_time">
            <span class="author_name">{{news.author_name}}</span>
            <span class="time">{{news.date}}</span></div>
-       </router-link>
      </li>
     </ul>
   </div>
@@ -28,27 +26,64 @@ export default {
     };
   },
 created(){
-   this.$axios.get('/toutiao/index', {
-    params: {
-      type: 'yule'
-    },headers: {
-            'Authorization': 'APPCODE 4b78d6523aac430aa69bea6d61a421b4'
-        }
-  })
-  .then(res=>{
-    this.newsList=res.data.result.data;
-  
-    })
-   .catch(err=>{
-      console.log("新闻列表异常",err)
-   })
-},
+  this._getData()
+  },
+methods:{
+ async _getData(){
+   let item=JSON.parse(window.localStorage.getItem("detailItem"));
+   let params={type: 'yule'};
+   const res=await this.$axios.get('/toutiao/index', {params});
+   this.newsList=res.data.result.data;
+ },
+goToDetail(item){
+  this.$router.push({
+  name:"news.detail",
+  query:{url:encodeURIComponent(item.url)}}
+  )
 
+}
+}
 };
+
+
+
+
+
+
+  // goToDetail(item){
+  //    window.localStorage.setItem("detailItem",JSON.stringify(item))
+  //    this.$router.push({
+  //    name:"news.detail",
+  // })
+  // console.log(item)
+  // created(){
+  //  this.$axios.get('/toutiao/index', {
+  //   params: {
+  //     type: 'yule'
+  //   }
+  // ,headers: {
+  //         'Authorization': 'APPCODE 4b78d6523aac430aa69bea6d61a421b4'
+  //     }
+  //  })
+  // .then(res=>{
+  //   this.newsList=res.data.result.data;
+  //   })
+  //  .catch(err=>{
+  //     console.log("新闻列表异常",err)
+  //  })
+
 </script>
 <style scoped>
-.newsList ul{
-  margin-top:40px;
+ul{
+margin: 0 auto 95px 0;
+padding: 0;
+height:600px;
+list-style: none;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+ul::-webkit-scrollbar{
+display:none;
 }
 .newsList ul li {
   margin-top:8px;

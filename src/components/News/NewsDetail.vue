@@ -1,35 +1,53 @@
 <template>
   <div class="detail">
     <Navbar title="新闻详情"></Navbar>
-       <router-link :to='{name:"news.detail",query:{id:news.id}}' :url="detail.url">
+      <iframe :src="url"></iframe>
   </div>
 </template>
 <script>
 export default {
   name:'newsDetail',
   data(){
-    return{
-      detail:[]
-    };
+    return{url:''};
   },
-  created(){
-   this.$axios.get('/toutiao/index', {
-    params: {
-      type: 'yule'
-    },headers: {
-            'Authorization': 'APPCODE 4b78d6523aac430aa69bea6d61a421b4'
-        }
-  })
-  .then(res=>{
-  this.detail=res.data.result.data;
-    })
-   .catch(err=>{
-      console.log("新闻列表异常",err)
-   })
-},
+  methods:{
+    _getData(){
+      this.url=decodeURIComponent(this.$route.query.url)
+       }
+  }, 
+  mounted(){
+    this._getData();
+  }
+  };
+ 
 
-};
+
+
+
+
+
+
+    //  <li v-for="news in newsList" :key="news.id">
+  // <router-link :to='{name:"news.detail",query:{id:news.id}}'> 
+// created(){this._getData()},
+// methods:{
+//  async _getData(){
+//  let params={type: 'yule'}
+//    const res=await this.$axios.get('/toutiao/index', {params})
+//     this.newsDetail=res.data.result.data;
+//  },
+// }
+
 </script>
 <style scoped>
-
+.detail{
+  overflow: hidden;
+  width: 375px;
+}
+iframe{
+  width: 395px;
+  height: 600px;
+  border: none;
+  
+}
 </style>

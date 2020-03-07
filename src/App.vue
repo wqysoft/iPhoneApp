@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 顶部栏 -->
-    <mt-header fixed title="信息管理系统"><!--fixed使其固定在顶部-->
+    <mt-header fixed title="信息管理系统" class="header">
       <router-link to="/" slot="left">
         <mt-button icon="back">首页</mt-button>
       </router-link>
@@ -47,6 +47,12 @@ export default {
 </script>
 
 <style scoped>
+.header{
+  border:1px solid red;
+}
+.tabBar{
+  height: 65px;
+}
 .tabBar ul {
   width: 100%;
   overflow: hidden;

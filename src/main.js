@@ -15,9 +15,13 @@ Vue.use(Mint);
 import 'mint-ui/lib/style.css'
 import '../static/css/global.css'
 //配置公共的url
-Axios.defaults.baseURL='http://toutiao-ali.juheapi.com';
+// Axios.defaults.baseURL='http://toutiao-ali.juheapi.com';
+const axios = Axios.create({
+  baseURL:'http://toutiao-ali.juheapi.com',
+  headers:{ 'Authorization': 'APPCODE 4b78d6523aac430aa69bea6d61a421b4'}
+  })
 //配置axios
-Vue.prototype.$axios=Axios;
+Vue.prototype.$axios=axios;
 
 //注册全局的导航栏组件
 import Navbar from "@/components/Common/Navbar"

@@ -1,8 +1,7 @@
 <template>
-  <div>
     <div id="home">
       <!-- 轮播图 -->
-      <mt-swipe :auto="4000" style="height:250px" class="swiper">
+      <mt-swipe :auto="4000" class="swiper">
         <mt-swipe-item v-for="(banner,index) in banners" :key="index">
           <img :src="banner.src">
         </mt-swipe-item>
@@ -19,7 +18,6 @@
         </ul>
       </div>
     </div>
-  </div>
 </template>
 <script>
 var grids=[ 
@@ -50,26 +48,23 @@ export default {
       banners:banners
     };
   }
-  //  created(){//发起请求
-  //      this.$axios.get('data_api.html')
-  //      .then(res=>{
-  //          console.log(res.data.message);
-  //          this.imgs=res.data.message;
-  //      })
-  //      .catch(err=>{
-  //          console.log('轮播图数据异常',err);
-  //      })
 };
 </script>
  <style lang="css" scoped>
-
+#home{
+  margin-bottom: 65px;
+  border: 1px solid red;
+}
+.swiper{
+  height:250px;
+  border: 1px solid red;
+}
 .swiper img {
   width: 100%;
   height: 250px;
 }
 .list{
   width:100%;
-  
 }
 .list ul{
 display: flex;

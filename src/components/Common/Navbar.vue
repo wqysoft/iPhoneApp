@@ -1,9 +1,11 @@
 <template>
+<div id="position_ab">
 <div class="header">
     <h4 class="back" @click="goBack">×</h4>
     <h4 class="desc_title">
         {{title}}
     </h4>
+</div>
 </div>
 </template>
 <script>
@@ -23,12 +25,15 @@ export default {
 }
 </script>
 <style scoped>
+#position_ab{
+    height: 35px;
+}
 .header{
     width: 100%;
     height: 35px;
     line-height: 35px;
     top: 40px;
-    position:fixed;
+    position: absolute;
     background-color: #e0e0e0;
 }
 .header  h4{
